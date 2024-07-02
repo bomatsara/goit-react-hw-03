@@ -26,7 +26,9 @@ export default function ContactForm({ onAdd }) {
 
     const validationSchema = Yup.object({
         username: Yup.string()
-            .required("Username is required"),
+            .required("Username is required")
+            .min(3, "Username must be at least 3 digits")
+            .max(50, "Username must be at most 50 digits"),
         number: Yup.string()
             .matches(/^[0-9]+$/, "Only numbers are allowed")
             .required("Number is required")
